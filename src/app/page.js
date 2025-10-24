@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-  <div style={{ minHeight: '100vh', background: '#F8F8F9', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', overflow: 'hidden', position: 'relative' }}>
+  <div style={{ minHeight: '100vh', width: '100vw', background: '#F8F8F9', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', overflow: 'hidden', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <Hero3D />
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100vw', height: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 2, pointerEvents: 'none' }}>
+      <div style={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 2, position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}>
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          style={{ color: '#fff', fontSize: '3.2rem', fontWeight: 800, textShadow: '0 0 32px #A855F7, 0 0 8px #6A0DAD', textAlign: 'center', letterSpacing: '0.01em', marginBottom: '18px', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 10 }}
+          style={{ color: '#fff', fontSize: '3.2rem', fontWeight: 800, textShadow: '0 0 32px #A855F7, 0 0 8px #6A0DAD', textAlign: 'center', letterSpacing: '0.01em', marginBottom: '18px', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 10, textTransform: 'uppercase', lineHeight: 1.1 }}
         >
           Igniting the Future of Finance.
         </motion.h1>
@@ -23,7 +23,7 @@ export default function Home() {
         >
           Where Artificial Intelligence Meets Blockchain Innovation.
         </motion.p>
-        <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', marginBottom: '24px', pointerEvents: 'auto', zIndex: 10 }}>
+        <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', marginBottom: '24px', pointerEvents: 'auto', zIndex: 10, flexWrap: 'wrap' }}>
           <motion.a
             href="#projects"
             whileHover={{ scale: 1.08, boxShadow: '0 0 32px #A855F7, 0 0 8px #6A0DAD' }}
@@ -41,6 +41,8 @@ export default function Home() {
               transition: 'all 0.2s',
               outline: 'none',
               fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif',
+              marginBottom: 12,
+              display: 'inline-block',
             }}
           >
             Explore Our Work
@@ -62,13 +64,15 @@ export default function Home() {
               transition: 'all 0.2s',
               outline: 'none',
               fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif',
+              marginBottom: 12,
+              display: 'inline-block',
             }}
           >
             Join the Future
           </motion.a>
         </div>
       </div>
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '64px 24px 0 24px', color: '#fff', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 3, position: 'relative' }}>
+  <section style={{ maxWidth: '900px', margin: '0 auto', padding: '64px 24px 0 24px', color: '#fff', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 3, position: 'relative', width: '100%' }}>
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,6 +82,26 @@ export default function Home() {
           Fornax Labs is a software powerhouse shaping the future of financial intelligence through AI, Web3, and blockchain innovation.
         </motion.p>
       </section>
+      {/* Responsive styles */}
+      <style>{`
+        @media (max-width: 700px) {
+          h1 {
+            font-size: 2rem !important;
+          }
+          p {
+            font-size: 1rem !important;
+          }
+          a {
+            padding: 12px 24px !important;
+            font-size: 1rem !important;
+          }
+          .hero-content {
+            height: 100vh !important;
+            width: 100vw !important;
+            left: 0 !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
