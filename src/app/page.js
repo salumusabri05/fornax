@@ -1,68 +1,83 @@
-import Image from "next/image";
-import ThreeDemo from "./ThreeDemo";
+"use client";
+import Hero3D from "./Hero3D";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-  {/* 3D Demo Component */}
-  <ThreeDemo />
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  <div style={{ minHeight: '100vh', background: '#F8F8F9', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', overflow: 'hidden', position: 'relative' }}>
+      <Hero3D />
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100vw', height: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 2, pointerEvents: 'none' }}>
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          style={{ color: '#fff', fontSize: '3.2rem', fontWeight: 800, textShadow: '0 0 32px #A855F7, 0 0 8px #6A0DAD', textAlign: 'center', letterSpacing: '0.01em', marginBottom: '18px', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 10 }}
+        >
+          Igniting the Future of Finance.
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6, ease: 'easeOut' }}
+          style={{ color: '#A855F7', fontSize: '1.35rem', fontWeight: 500, textAlign: 'center', textShadow: '0 0 16px #6A0DAD', marginBottom: '32px', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 10 }}
+        >
+          Where Artificial Intelligence Meets Blockchain Innovation.
+        </motion.p>
+        <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', marginBottom: '24px', pointerEvents: 'auto', zIndex: 10 }}>
+          <motion.a
+            href="#projects"
+            whileHover={{ scale: 1.08, boxShadow: '0 0 32px #A855F7, 0 0 8px #6A0DAD' }}
+            style={{
+              padding: '18px 44px',
+              borderRadius: '32px',
+              background: 'linear-gradient(90deg, #6A0DAD 60%, #A855F7 100%)',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '1.15rem',
+              boxShadow: '0 0 24px #A855F7',
+              border: 'none',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+              outline: 'none',
+              fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif',
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Explore Our Work
+          </motion.a>
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.08, boxShadow: '0 0 32px #A855F7, 0 0 8px #6A0DAD' }}
+            style={{
+              padding: '18px 44px',
+              borderRadius: '32px',
+              background: 'linear-gradient(90deg, #A855F7 60%, #6A0DAD 100%)',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '1.15rem',
+              boxShadow: '0 0 24px #6A0DAD',
+              border: 'none',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+              outline: 'none',
+              fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif',
+            }}
           >
-            Documentation
-          </a>
+            Join the Future
+          </motion.a>
         </div>
-      </main>
+      </div>
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '64px 24px 0 24px', color: '#fff', fontFamily: 'var(--font-poppins), Arial, Helvetica, sans-serif', zIndex: 3, position: 'relative' }}>
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          style={{ fontSize: '1.15rem', textAlign: 'center', lineHeight: '1.7', color: '#A855F7', marginBottom: '32px', textShadow: '0 0 16px #6A0DAD' }}
+        >
+          Fornax Labs is a software powerhouse shaping the future of financial intelligence through AI, Web3, and blockchain innovation.
+        </motion.p>
+      </section>
     </div>
   );
 }
